@@ -1,4 +1,4 @@
-<img src="./images/logo_small.png" style="float:right;width:100px;height:100px" />
+<img src="./images/logo.png" width="100" height="100" align="right" />
 
 Machine-readable-Covid-19-ISS-data
 ==================================
