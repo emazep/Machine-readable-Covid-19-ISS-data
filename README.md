@@ -3,7 +3,7 @@
 Machine-readable-Covid-19-ISS-data
 ==================================
 
-I dati delle pubblicazioni periodiche dell'Istituto Superiore di Sanità (ISS) storicizzati e converiti in formato machine-readable.
+I dati delle pubblicazioni periodiche dell'Istituto Superiore di Sanità (ISS) sull'epidemia da SARS-CoV-2 storicizzati e convertiti in formato machine-readable.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![GitHub commit](https://img.shields.io/github/last-commit/emazep/Machine-readable-Covid-19-ISS-data)](https://img.shields.io/github/last-commit/emazep/Machine-readable-Covid-19-ISS-data/commits/master)
@@ -111,7 +111,7 @@ Il codice per l'estrazione dei dati dai documenti scaricati viene invece fornito
 
 ## Roadmap
 
-I dati in formato machine readable presenti in questo repository verranno aggiornati entro qualche ora dalla pubblicazione dei nuovi report da parte dell'ISS.
+I dati in formato machine-readable presenti in questo repository verranno aggiornati entro qualche ora dalla pubblicazione dei nuovi report da parte dell'ISS.
 
 Non si esclude che in futuro possano essere acquisiti anche altri dati dalle pubblicazioni dell'ISS.
 
@@ -119,7 +119,7 @@ Si consultino le [segnalazioni aperte](https://github.com/github_username/repo_n
 
 ## Come contribuire
 
-I contributi maggiormente apprezzati riguardano il controllo della correttezza dei dati estratti ma anche eventuali suggerimenti riguardo nuovi dati da estrarre, avendo cura in quest'ultimo caso di fornire i dovuti link e di controllare che non si tratti di dati già disponibili in formato machine readable altrove (ad esempio sul repository GitHub Protezione Civile).
+I contributi maggiormente apprezzati riguardano il controllo della correttezza dei dati estratti ma anche eventuali suggerimenti riguardo nuovi dati da estrarre, avendo cura in quest'ultimo caso di fornire i dovuti link e di controllare che non si tratti di dati già disponibili in formato machine-readable altrove (ad esempio sul repository GitHub Protezione Civile).
 
 Per quanto riguarda i contributi al codice, si prega di attenersi agli standard desumibili dal codice presente. A meno che non si tratti di contributi minimi, la procedura da seguire è:
 
