@@ -88,7 +88,7 @@ for age_class in AGE_CLASSES:
     df['deaths_total_' + age_class] = df['deaths_male_' + age_class] + df['deaths_female_' + age_class]
 ```
 
-Aggiunta di una colonna contenente il CFR (_Confirmed Fatality Rate_, dato dal rapporto tra i decessi cumulati alla data corrente e i casi cumulati alla data precedente disponibile) per ogni classe d'età, espresso in percentuale (si assume che sia già stato eseguito lo snippet precedente):
+Aggiunta di una colonna contenente il CFR (_Confirmed Fatality Rate_, dato dal rapporto tra i decessi cumulati e i casi cumulati alla data precedente disponibile) per ogni classe d'età, espresso in percentuale (si assume che sia già stato eseguito lo snippet precedente):
 
 ```
 for age_class in AGE_CLASSES:
