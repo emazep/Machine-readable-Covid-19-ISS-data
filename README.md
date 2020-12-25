@@ -126,11 +126,11 @@ I contributi maggiormente apprezzati riguardano il controllo della correttezza d
 
 Per quanto riguarda i contributi al codice, si prega di attenersi agli standard desumibili dal codice presente. A meno che non si tratti di contributi minimi, la procedura da seguire è:
 
-1. Forkare il progetto
-2. Creare un Branch per le vostre Feature (`git checkout -b feature/AmazingFeature`)
-3. Committare i cambiamenti (`git commit -m 'Add some AmazingFeature'`)
-4. Pushare i cambiamenti sul Branch (`git push origin feature/AmazingFeature`)
-5. Aprire una Pull Request
+1. forkare il progetto;
+2. creare un Branch per le vostre Feature (`git checkout -b feature/AmazingFeature`);
+3. committare le modifiche/aggiunte apportate (`git commit -m 'Add some AmazingFeature'`);
+4. pushare le modifiche sul Branch (`git push origin feature/AmazingFeature`);
+5. aprire una Pull Request.
 
 ## Licenza
 
