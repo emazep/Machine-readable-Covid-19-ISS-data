@@ -64,10 +64,11 @@ while (scan_date >= stop_date):
     
     file_save_name = SAVE_PATH + file_normalized_name
     
+    print()
+    
     if os.path.exists(file_save_name):
         print(colored(file_save_name + '\talready present!', 'red', 'on_white'))
         if STOP_ON_FIRST_DUPLICATE:
-            print()
             print('Exiting because an already downloaded doc has been found.\nTo scan every single date regardless of the already downloaded docs, please set STOP_ON_FIRST_DUPLICATE to False.')
             break
         continue
