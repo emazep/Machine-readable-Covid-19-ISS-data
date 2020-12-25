@@ -35,7 +35,7 @@ per un totale di 40 colonne (esclusa la colonna chiave).
 
 Per quanto riguarda gli altri dati della tabella orginale (percentuali e letalità), si è deciso di non acquisirli in quanto funzionalmente dipendenti dai dati predetti e quindi da essi derivabili (si è fatta un'eccezione per le sole colonne dei totali sull'età), in maniera molto semplice (si consulti il paragrafo [Cookbook](#cookbook)).
 
-La struttura della tabella finale sopra descritta può essere immediatamente compresa per semplice ispezione visiva della renderizzazione che ne offre GitHub:
+La tabella finale sopra descritta è presente nella directory `data/` col nome di `italy_cases_deaths_by_age_sex.csv` e la sua struttura può essere immediatamente compresa per semplice ispezione visiva della renderizzazione che ne offre GitHub:
 https://github.com/emazep/Machine-readable-Covid-19-ISS-data/blob/master/data/italy_cases_deaths_by_age_sex.csv
 
 ## Limitazioni
