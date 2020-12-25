@@ -54,7 +54,7 @@ I dati estratti, in formato CSV, possono essere utilizzati direttamente, facendo
 
 https://raw.githubusercontent.com/emazep/Machine-readable-Covid-19-ISS-data/master/data/italy_cases_deaths_by_age_sex.csv
 
-che conterrà sempre lo storico di tutti i dati aggiornati all'ultimo documento disponibie, che verrà acquisito il prima possibile (ci si propone entro qualche ora dalla pubblicazione sul sito dell'ISS).
+che conterrà sempre lo storico di tutti i dati aggiornati all'ultimo documento disponibile, che verrà acquisito il prima possibile (ci si propone entro qualche ora dalla pubblicazione sul sito dell'ISS).
 
 ### Cookbook
 
@@ -110,7 +110,7 @@ pip install -r requirements.txt
 
 Il codice è presente sotto la directory `script/`. Lo script `bollettino_sorveglianza_integrata_download.py` si incarica di scaricare e salvare in locale i documenti dell'ISS, nonché di normalizzarne i nomi dei file. Lo script al momento non accetta parametri dalla linea di comando, per cui se se ne vuole customizzare il funzionamento è necessario valorizzare opportunamente le variabili globali in testa al codice (sufficientemente documentate). Tuttavia il comportamento di default è quello che dovrebbe andare bene nella maggior parte dei casi: vengono scaricati tutti i documenti pubblicati sul sito dell'ISS, nell'ordine che va dal più recente al più remoto, e salvati in locale nella directory `../original_ISS_documents/bollettino_sorveglianza_integrata/` col nome file opportunamente normalizzato, mentre in caso di successiva esecuzione lo script si interrompe al primo documento trovato che risulta già scaricato (il più recente), in modo da poter essere lanciato periodicamente per scaricare i nuovi documenti, senza che venga inutilmente ripetuto anche il download di quelli precedenti.
 
-Il codice per l'estrazione dei dati dai documenti scaricati viene invece fornito come notebook Jupyter (nel file `bollettino_sorveglianza_integrata_ETL.ipynb`), data la sua natura maggiormente interattiva, dovuta al fatto che, sulla base dei documenti fin qui pubblicati, risulta purtroppo altamente probabile che quelli futuri presentino difformità nella presentazione dei dati tali da richiedere adattamenti nel codice di scraping (adattamenti che si è cercato comunque di limitare alla valorizzazione di un paio di variabili).
+Il codice per l'estrazione dei dati dai documenti scaricati viene invece fornito come notebook Jupyter (nel file `bollettino_sorveglianza_integrata_ETL.ipynb`), data la sua natura maggiormente interattiva, dovuta al fatto che, sulla base dei documenti fin qui pubblicati, risulta purtroppo altamente probabile che quelli futuri presentino difformità nella presentazione dei dati tali da richiedere adattamenti nel codice di scraping (adattamenti che si è cercato comunque di limitare alla valorizzazione di un paio di parametri).
 
 ## Roadmap
 
@@ -122,7 +122,7 @@ Si consultino le [segnalazioni aperte](https://github.com/emazep/Machine-readabl
 
 ## Come contribuire
 
-I contributi maggiormente apprezzati riguardano il controllo della correttezza dei dati estratti ma anche eventuali suggerimenti riguardo nuovi dati da estrarre, avendo cura in quest'ultimo caso di fornire i dovuti link e di controllare che non si tratti di dati già disponibili in formato machine-readable altrove (ad esempio sul repository GitHub Protezione Civile).
+I contributi maggiormente apprezzati riguardano il controllo della correttezza dei dati estratti ma anche eventuali suggerimenti riguardo nuovi dati da estrarre, avendo cura in quest'ultimo caso di fornire i dovuti link e di controllare che non si tratti di dati già disponibili in formato machine-readable altrove (ad esempio sul repository GitHub della Protezione Civile).
 
 Per quanto riguarda i contributi al codice, si prega di attenersi agli standard desumibili dal codice presente. A meno che non si tratti di contributi minimi, la procedura da seguire è:
 
