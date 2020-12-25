@@ -122,7 +122,7 @@ Si consultino le [segnalazioni aperte](https://github.com/emazep/Machine-readabl
 
 ## Come contribuire
 
-I contributi maggiormente apprezzati riguardano il controllo della correttezza dei dati estratti ma anche eventuali suggerimenti riguardo nuovi dati da estrarre, avendo cura in quest'ultimo caso di fornire i dovuti link e di controllare che non si tratti di dati già disponibili in formato machine-readable altrove (ad esempio sul repository GitHub della Protezione Civile).
+I contributi maggiormente apprezzati riguardano il controllo della correttezza dei dati estratti ma anche eventuali suggerimenti riguardo nuovi dati da estrarre, avendo cura in quest'ultimo caso di fornire i dovuti link e di controllare che non si tratti di dati già disponibili in formato machine-readable altrove (ad esempio sul [repository GitHub della Protezione Civile](https://github.com/pcm-dpc/COVID-19)).
 
 Per quanto riguarda i contributi al codice, si prega di attenersi agli standard desumibili dal codice presente. A meno che non si tratti di contributi minimi, la procedura da seguire è:
 
@@ -130,7 +130,7 @@ Per quanto riguarda i contributi al codice, si prega di attenersi agli standard 
 2. Creare un Branch per le vostre Feature (`git checkout -b feature/AmazingFeature`)
 3. Committare i cambiamenti (`git commit -m 'Add some AmazingFeature'`)
 4. Pushare i cambiamenti sul Branch (`git push origin feature/AmazingFeature`)
-5. Aprite una Pull Request
+5. Aprire una Pull Request
 
 ## Licenza
 
