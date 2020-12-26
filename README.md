@@ -102,13 +102,15 @@ for age_class in AGE_CLASSES:
 
 L'uso degli script non è necessario, a meno che non si intenda scaricare i documenti dell'ISS ed estrarne i dati in autonomia.
 
-Per installare i prerequisiti, eseguire:
+Gli script sono stati redatti in codice Python e sono reperibili nella directory `script/`.
+
+Per installarne i prerequisiti, eseguire:
 
 ```
 pip install -r requirements.txt
 ```
 
-Il codice è presente sotto la directory `script/`. Lo script `bollettino_sorveglianza_integrata_download.py` si incarica di scaricare e salvare in locale i documenti dell'ISS, nonché di normalizzarne i nomi dei file. Lo script al momento non accetta parametri dalla linea di comando, per cui se se ne vuole customizzare il funzionamento è necessario valorizzare opportunamente le variabili globali in testa al codice (sufficientemente documentate). Tuttavia il comportamento di default è quello che dovrebbe andare bene nella maggior parte dei casi: vengono scaricati tutti i documenti pubblicati sul sito dell'ISS, nell'ordine che va dal più recente al più remoto, e salvati in locale nella directory `../original_ISS_documents/bollettino_sorveglianza_integrata/` col nome file opportunamente normalizzato, mentre in caso di successiva esecuzione lo script si interrompe al primo documento trovato che risulta già scaricato (il più recente), in modo da poter essere lanciato periodicamente per scaricare i nuovi documenti, senza che venga inutilmente ripetuto anche il download di quelli precedenti.
+Lo script `bollettino_sorveglianza_integrata_download.py` si incarica di scaricare e salvare in locale i documenti dell'ISS, nonché di normalizzarne i nomi dei file. Lo script al momento non accetta parametri dalla linea di comando, per cui se se ne vuole customizzare il funzionamento è necessario valorizzare opportunamente le variabili globali in testa al codice (sufficientemente documentate). Tuttavia il comportamento di default è quello che dovrebbe andare bene nella maggior parte dei casi: vengono scaricati tutti i documenti pubblicati sul sito dell'ISS, nell'ordine che va dal più recente al più remoto, e salvati in locale nella directory `../original_ISS_documents/bollettino_sorveglianza_integrata/` col nome file opportunamente normalizzato, mentre in caso di successiva esecuzione lo script si interrompe al primo documento trovato che risulta già scaricato (il più recente), in modo da poter essere lanciato periodicamente per scaricare i nuovi documenti, senza che venga inutilmente ripetuto anche il download di quelli precedenti.
 
 Il codice per l'estrazione dei dati dai documenti scaricati viene invece fornito come notebook Jupyter (nel file `bollettino_sorveglianza_integrata_ETL.ipynb`), data la sua natura maggiormente interattiva, dovuta al fatto che, sulla base dei documenti fin qui pubblicati, risulta purtroppo altamente probabile che quelli futuri presentino difformità nella presentazione dei dati tali da richiedere adattamenti nel codice di scraping (adattamenti che si è cercato comunque di limitare alla valorizzazione di un paio di parametri).
 
