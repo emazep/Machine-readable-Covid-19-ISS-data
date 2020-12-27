@@ -87,15 +87,15 @@ Calcolo dei casi e dei decessi totali (maschi + femmine) per ogni classe d'età:
 AGE_CLASSES = ['0-9', '10-19', '20-29', '30-39', '40-49', '50-59', '60-69', '70-79', '80-89', '90-']
 
 for age_class in AGE_CLASSES:
-    df['cases_total_' + age_class] = df['cases_male_' + age_class] + df['cases_female_' + age_class]
-    df['deaths_total_' + age_class] = df['deaths_male_' + age_class] + df['deaths_female_' + age_class]
+    df['cases_' + age_class + '_TOTAL'] = df['cases_male_' + age_class] + df['cases_female_' + age_class]
+    df['deaths_' + age_class + '_TOTAL'] = df['deaths_male_' + age_class] + df['deaths_female_' + age_class]
 ```
 
 Aggiunta di una colonna contenente il CFR (_Confirmed Fatality Rate_, dato dal rapporto tra i decessi cumulati alla data corrente e i casi cumulati alla data precedente disponibile) per ogni classe d'età, espresso in percentuale (si assume che sia già stato eseguito lo snippet precedente):
 
 ```
 for age_class in AGE_CLASSES:
-    df['CFR_' + age_class] = (df['deaths_total_' + age_class] / df['cases_total_' + age_class].shift()) * 100
+    df['CFR_' + age_class] = (df['deaths_' + age_class + '_TOTAL'] / df['cases_' + age_class + '_TOTAL'].shift()) * 100
 ```
 
 ### Uso degli script
