@@ -34,7 +34,7 @@ per un totale di 40 colonne (esclusa la colonna chiave).
 
 Per quanto riguarda gli altri dati della tabella orginale (percentuali e letalità), si è deciso di non acquisirli in quanto funzionalmente dipendenti dai dati predetti (si è fatta un'eccezione per le sole colonne dei totali sull'età) e quindi da essi derivabili, perlatro in maniera piuttosto semplice: si consulti il paragrafo [Cookbook](#cookbook).
 
-La tabella finale sopra descritta è presente nella directory `data/` col nome di `italy_cases_deaths_by_age_sex.csv` e la sua struttura può essere immediatamente compresa anche tramite semplice ispezione visiva della renderizzazione che ne offre GitHub:
+La tabella finale sopra descritta è presente nella directory `data/` col nome di `italy_cases_deaths_by_age_sex.csv` e la sua struttura può essere immediatamente compresa anche tramite la semplice ispezione visiva della renderizzazione che ne offre GitHub:
 https://github.com/emazep/Machine-readable-Covid-19-ISS-data/blob/master/data/italy_cases_deaths_by_age_sex.csv
 
 ## Limitazioni
@@ -49,7 +49,7 @@ I dati soffrono di alcune limitazioni, dovute alle modalità di pubblicazione de
 
 ## Fonti alternative
 
-Dal 08/12/2020 l'ISS ha inziato a pubblicare questi stessi dati anche in formato machine-readable, attraverso un file `xlsx` aggiornato con cadenza giornaliera, linkato nella pagina https://www.epicentro.iss.it/coronavirus/sars-cov-2-dashboard.
+Dal 08/12/2020 l'ISS ha iniziato a pubblicare questi stessi dati anche in formato machine-readable, attraverso un file `xlsx` aggiornato con cadenza giornaliera, linkato nella pagina https://www.epicentro.iss.it/coronavirus/sars-cov-2-dashboard.
 
 Tali dati presentano tuttavia almeno un paio di rilevanti limitazioni:
 
