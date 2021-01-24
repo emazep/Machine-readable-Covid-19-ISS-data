@@ -49,14 +49,14 @@ I dati soffrono di alcune limitazioni, dovute alle modalità di pubblicazione de
 
 ## Fonti alternative
 
-Dal 08/12/2020 l'ISS ha iniziato a pubblicare questi stessi dati anche in formato machine-readable, attraverso un file `xlsx` aggiornato con cadenza giornaliera, linkato nella pagina https://www.epicentro.iss.it/coronavirus/sars-cov-2-dashboard.
+Ancorché in forma largamente subottimale, dal 08/12/2020 l'ISS ha iniziato a pubblicare questi stessi dati anche in formato machine-readable, attraverso un file `xlsx` aggiornato con cadenza giornaliera, linkato nella pagina https://www.epicentro.iss.it/coronavirus/sars-cov-2-dashboard.
 
 Tali dati presentano tuttavia almeno un paio di rilevanti limitazioni:
 
 1. non vengono storicizzati: il file contiene semplicemente i valori cumulati aggiornati alla data di pubblicazione; a tale proposito va detto che esiste un meritorio progetto indipendente che recupera periodicamente il predetto file e ne storicizza i valori, rinvenibile qui: https://github.com/floatingpurr/covid-19_sorveglianza_integrata_italia;
 1. come già detto, i dati partono dai valori cumulati alla data 08/12/2020, quindi non è possibile recuperarne i valori precedenti (che costituisce il motivo principale per cui è nato il presente progetto).
 
-Per quanto ci risulta, il presente progetto è l'unico attraverso il quale sia possibile recuperare lo storico dei predetti dati esteso al periodo dell'intera durata della pandemia in Italia.
+Per quanto ci risulta, il presente progetto è l'unico attraverso il quale sia possibile accedere all'intero archivio storico dei dati dell'ISS in formato machine-readable.
 
 ## Uso
 
