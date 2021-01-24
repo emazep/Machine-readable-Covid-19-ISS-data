@@ -57,8 +57,6 @@ scan_date = start_date
 print('Checking ISS documents...')
 
 while (scan_date >= stop_date):
-    time.sleep(WAIT)
-    
     date_suffix_orig = scan_date.strftime(strftime_string)
     date_suffix_iso = scan_date.isoformat()
     
@@ -78,6 +76,9 @@ while (scan_date >= stop_date):
             break
         continue
     
+    time.sleep(WAIT)
+    
+    # ISS server lookup
     url = URL_PREFIX + file_original_name
     r = requests.get(url)
     content_type = r.headers.get('content-type')

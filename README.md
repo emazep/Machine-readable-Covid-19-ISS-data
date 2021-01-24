@@ -10,14 +10,13 @@ I dati delle pubblicazioni periodiche dell'Istituto Superiore di Sanità (ISS) s
 
 ## Descrizione
 
-Attualmente questo repository contiene i dati storicizzati dei contagi e dei decessi verificatisi in Italia a seguito dell'epidemia da SARS-CoV-2 stratificati per classe d'età e per sesso, estratti dal report denominato ***Dati della Sorveglianza integrata COVID-19 in Italia - Documento esteso***, pubblicato in formato PDF con cadenza all'incirca settimanale sulla seguente pagina del sito istituzionale dell'ISS:
-https://www.epicentro.iss.it/coronavirus/sars-cov-2-sorveglianza-dati, nonché il codice per scaricare in locale tutti i predetti documenti ad oggi pubblicati e per effettuare su di essi le operazioni di estrazione dei dati (mediante PDF scraping) e di reshaping degli stessi. Per quanto ci risulta, tali dati non sono disponibili altrove in formato machine-readable (né storicizzati).
+Attualmente questo repository contiene i dati storicizzati dei contagi e dei decessi verificatisi in Italia a seguito dell'epidemia da SARS-CoV-2 stratificati per classe di età e per sesso, estratti dal report denominato ***Dati della Sorveglianza integrata COVID-19 in Italia - Documento esteso***, pubblicato in formato PDF con cadenza all'incirca settimanale sulla pagina del sito istituzionale dell'ISS https://www.epicentro.iss.it/coronavirus/sars-cov-2-sorveglianza-dati, nonché il codice per scaricare in locale tutti i predetti documenti ad oggi pubblicati e per effettuare su di essi le operazioni di estrazione dei dati (mediante PDF scraping) e di reshaping degli stessi.
 
-Più precisamente, i dati estratti sono quelli raccolti nella tabella che, nel documento originale in formato PDF, appare come segue:
+Più precisamente, i dati al momento disponibili in questo repository sono quelli raccolti nella tabella che, nel documento originale in formato PDF, appare come segue:
 
 ![ISS Table screenshot](./images/cases_deaths_by_age_sex_iss_table.png)
 
-la quale contiene come detto il numero dei casi diagnosticati e dei decessi, stratificato per classe d'età e per sesso, cumulato dall'inizio dell'epidemia alla data di pubblicazione del documento in questione (lo screenshot di cui sopra, che ha valenza puramente esemplificativa, è stato estratto dal documento del 16/12/2020).
+la quale contiene come detto il numero dei casi diagnosticati e dei decessi, stratificato per classe di età e per sesso, cumulato dall'inizio dell'epidemia alla data di pubblicazione del documento in questione (lo screenshot di cui sopra, che ha valenza puramente esemplificativa, è stato estratto dal documento del 16/12/2020).
 
 Per quanto attiene alle operazioni di data reshaping, ogni singola tabella estratta dal corrispondente documento è stata serializzata in un'unica riga della tabella finale, indicizzata tramite la data di pubblicazione del documento, in modo da avere lo storico di tutte le tabelle pubblicate.
 
@@ -33,20 +32,31 @@ Nel tabella finale i dati, privati della struttura gerarchica originale, appaion
 
 per un totale di 40 colonne (esclusa la colonna chiave).
 
-Per quanto riguarda gli altri dati della tabella orginale (percentuali e letalità), si è deciso di non acquisirli in quanto funzionalmente dipendenti dai dati predetti e quindi da essi derivabili (si è fatta un'eccezione per le sole colonne dei totali sull'età), in maniera molto semplice (si consulti il paragrafo [Cookbook](#cookbook)).
+Per quanto riguarda gli altri dati della tabella orginale (percentuali e letalità), si è deciso di non acquisirli in quanto funzionalmente dipendenti dai dati predetti (si è fatta un'eccezione per le sole colonne dei totali sull'età) e quindi da essi derivabili, perlatro in maniera piuttosto semplice: si consulti il paragrafo [Cookbook](#cookbook).
 
-La tabella finale sopra descritta è presente nella directory `data/` col nome di `italy_cases_deaths_by_age_sex.csv` e la sua struttura può essere immediatamente compresa per semplice ispezione visiva della renderizzazione che ne offre GitHub:
+La tabella finale sopra descritta è presente nella directory `data/` col nome di `italy_cases_deaths_by_age_sex.csv` e la sua struttura può essere immediatamente compresa anche tramite semplice ispezione visiva della renderizzazione che ne offre GitHub:
 https://github.com/emazep/Machine-readable-Covid-19-ISS-data/blob/master/data/italy_cases_deaths_by_age_sex.csv
 
 ## Limitazioni
 
-I dati soffrono di alcune limitazioni, dovute alla modalità di pubblicazione degli stessi da parte dell'ISS:
+I dati soffrono di alcune limitazioni, dovute alle modalità di pubblicazione degli stessi da parte dell'ISS:
 
 - i valori della chiave (la data di pubblicazione) non sono equispaziati: l'ISS ha pubblicato i dati con cadenza grossomodo settimanale ma, di tanto in tanto, tra un documento e il successivo sono trascorsi intervalli più lunghi o più brevi di 7 giorni (i documenti sono stati e verranno sempre acquisiti tutti, sicché l'utente è libero di effettuare eventuali operazioni di decimazione o interpolazione);
-- per giunta anche l'orario di estrazione dal proprio database dei dati pubblicati da parte dell'ISS è difforme da documento a documento;
+- per giunta anche l'orario di estrazione dal proprio database dei dati pubblicati da parte dell'ISS è difforme da documento a documento, cosa che potrebbe avere un qualche impatto laddove il database dell'ISS venisse alimentato più volte al giorno (cosa che non sappiamo);
 - benché i dati siano cumulati e quindi i valori debbano essere non decrescenti nel tempo, di tanto in tanto (raramente) si osservano dei valori decrescenti da una data alla successiva (forse per via di redistribuzioni di alcuni dati tra le varie fasce d'età);
 - i dati imputati nella tabella originale alla riga `Età non nota` non sono stati acquisiti in quanto non interpretabili: i valori hanno una notevole erraticità per cui certamente non sono cumulati, ma non è chiaro se si tratti di dati differenziali o (più probabilmente) di dati che diminuiscono di valore per intervenuta attribuzione ad una specifica classe d'età (in ogni caso si tratta di valori piuttosto contenuti);
 - benché il primo documento di questa serie (pubblicato dall'ISS in data 09/03/2020) sia stato regolarmente scaricato e sia presente anche in questo repository, da esso non è stato possibile acquisire i dati, in quanto la tabella contenuta appare limitata alla sola stratificazione per classe d'età e, per giunta, con le ultime due classi, che nei documenti successivi sono sempre separate (80-89 e ≥90), che in questo caso appaiono invece raccolte in un'unica classe (≥80); i dati estratti partono pertanto dal documento successivo, riferibile alla data 12/03/2020 (si tratta peraltro di uno dei casi in cui il tempo intercorso tra due documenti successivi è inferiore ai 7 giorni).
+
+## Fonti alternative
+
+Dal 08/12/2020 l'ISS ha inziato a pubblicare questi stessi dati anche in formato machine-readable, attraverso un file `xlsx` aggiornato con cadenza giornaliera, linkato nella pagina https://www.epicentro.iss.it/coronavirus/sars-cov-2-dashboard.
+
+Tali dati presentano tuttavia almeno un paio di rilevanti limitazioni:
+
+1. non vengono storicizzati: il file contiene semplicemente i valori cumulati aggiornati alla data di pubblicazione; a tale proposito va detto che esiste un meritorio progetto indipendente che recupera periodicamente il predetto file e ne storicizza i valori, rinvenibile qui: https://github.com/floatingpurr/covid-19_sorveglianza_integrata_italia;
+1. come già detto, i dati partono dai valori cumulati alla data 08/12/2020, quindi non è possibile recuperarne i valori precedenti (che costituisce il motivo principale per cui è nato il presente progetto).
+
+Per quanto ci risulta, il presente progetto è l'unico attraverso il quale sia possibile recuperare lo storico dei predetti dati esteso al periodo dell'intera durata della pandemia in Italia.
 
 ## Uso
 
@@ -54,7 +64,9 @@ I dati estratti, in formato CSV, possono essere utilizzati direttamente, facendo
 
 https://raw.githubusercontent.com/emazep/Machine-readable-Covid-19-ISS-data/master/data/italy_cases_deaths_by_age_sex.csv
 
-che conterrà sempre lo storico di tutti i dati aggiornati all'ultimo documento disponibile, che verrà acquisito il prima possibile (ci si propone entro qualche ora dalla pubblicazione sul sito dell'ISS).
+che conterrà sempre lo storico di tutti i dati aggiornati all'ultimo documento disponibile, che verrà acquisito il prima possibile, ci si propone entro qualche ora dalla pubblicazione sul sito dell'ISS.
+
+Purtroppo l'acquisizione non può essere del tutto automatizzata, data l'impredicibilità dei nomi dei file pubblicati dall'ISS (che non seguono uno standard uniforme) e della modalità di esposizione dei dati all'interno di ognuno di essi, affetta occasionalmente da variazioni nei metadati o da cambiamenti nella formattazione del documento, che impattano purtroppo sul processo di scraping.
 
 ### Cookbook
 
@@ -66,12 +78,20 @@ Caricamento di pandas:
 import pandas as pd
 ```
 
-Caricamento dei dati (aggiornati) in un dataframe (con riconoscimento e parsing automatico dell'indice in oggetti di tipo datetime):
+Caricamento dei dati (aggiornati) in un dataframe pandas (con riconoscimento e parsing automatico dell'indice in oggetti di tipo `datetime`):
 
 ```
 SOURCE = 'https://raw.githubusercontent.com/emazep/Machine-readable-Covid-19-ISS-data/master/data/italy_cases_deaths_by_age_sex.csv'
 
 df = pd.read_csv(SOURCE, index_col=0, parse_dates=True)
+```
+
+Se invece si desidera che l'indice sia di tipo `date` (preferibile) anziché `datetime`, per il caricamento si può utilizzare il seguente snippet alternativo (solo per pandas ≥ 0.15.0):
+
+```
+df = pd.read_csv(SOURCE, parse_dates=['date'])
+df['date'] = df['date'].dt.date
+df.set_index('date', inplace=True)
 ```
 
 Aggiunta di una colonna con i valori incrementali (ovvero le differenze col valore precedente nella colonna) per ogni colonna del dataframe:
@@ -81,7 +101,7 @@ for col in df.columns:
     df[col + '_DELTA'] = df[col].diff()
 ```
 
-Calcolo dei casi e dei decessi totali (maschi + femmine) per ogni classe d'età:
+Calcolo dei casi e dei decessi totali (maschi + femmine) per ogni classe di età:
 
 ```
 AGE_CLASSES = ['0-9', '10-19', '20-29', '30-39', '40-49', '50-59', '60-69', '70-79', '80-89', '90-']
