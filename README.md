@@ -1,7 +1,6 @@
 <img src="./images/logo.png" width="100" height="100" align="right" />
 
-Machine-readable-Covid-19-ISS-data
-==================================
+# Machine-readable-Covid-19-ISS-data
 
 I dati delle pubblicazioni periodiche dell'Istituto Superiore di Sanità (ISS) sull'epidemia da SARS-CoV-2 storicizzati e convertiti in formato machine-readable.
 
@@ -10,7 +9,7 @@ I dati delle pubblicazioni periodiche dell'Istituto Superiore di Sanità (ISS) s
 
 ## Descrizione
 
-Attualmente questo repository contiene i dati storicizzati dei contagi e dei decessi verificatisi in Italia a seguito dell'epidemia da SARS-CoV-2 stratificati per classe di età e per sesso, estratti dal report denominato ***Dati della Sorveglianza integrata COVID-19 in Italia - Documento esteso***, pubblicato in formato PDF con cadenza all'incirca settimanale sulla pagina del sito istituzionale dell'ISS https://www.epicentro.iss.it/coronavirus/sars-cov-2-sorveglianza-dati, nonché il codice per scaricare in locale tutti i predetti documenti ad oggi pubblicati e per effettuare su di essi le operazioni di estrazione dei dati (mediante PDF scraping) e di reshaping degli stessi.
+Attualmente questo repository contiene i dati storicizzati dei contagi e dei decessi verificatisi in Italia a seguito dell'epidemia da SARS-CoV-2 stratificati per classe di età e per sesso, estratti dal report denominato ***Dati della Sorveglianza integrata COVID-19 in Italia - Documento esteso***, pubblicato in formato PDF con cadenza all'incirca settimanale [sul sito istituzionale dell'ISS](https://www.epicentro.iss.it/coronavirus/sars-cov-2-sorveglianza-dati), nonché il codice per scaricare in locale tutti i predetti documenti ad oggi pubblicati e per effettuare su di essi le operazioni di estrazione dei dati (mediante PDF scraping) e di reshaping degli stessi.
 
 Più precisamente, i dati al momento disponibili in questo repository sono quelli raccolti nella tabella che, nel documento originale in formato PDF, appare come segue:
 
@@ -32,39 +31,49 @@ Nel tabella finale i dati, privati della struttura gerarchica originale, appaion
 
 per un totale di 40 colonne (esclusa la colonna chiave).
 
-Per quanto riguarda gli altri dati della tabella orginale (percentuali e letalità), si è deciso di non acquisirli in quanto funzionalmente dipendenti dai dati predetti (si è fatta un'eccezione per le sole colonne dei totali sull'età) e quindi da essi derivabili, perlatro in maniera piuttosto semplice: si consulti il paragrafo [Cookbook](#cookbook).
+Per quanto riguarda gli altri dati della tabella originale (percentuali e letalità), si è deciso di non acquisirli in quanto funzionalmente dipendenti dai dati predetti (si è fatta un'eccezione per le sole colonne dei totali sull'età) e quindi da essi derivabili, peraltro in maniera piuttosto semplice: si consulti il paragrafo [Cookbook](#cookbook).
 
-La tabella finale sopra descritta è presente nella directory `data/` col nome di `italy_cases_deaths_by_age_sex.csv` e la sua struttura può essere immediatamente compresa anche tramite la semplice ispezione visiva della renderizzazione che ne offre GitHub:
-https://github.com/emazep/Machine-readable-Covid-19-ISS-data/blob/master/data/italy_cases_deaths_by_age_sex.csv
+La tabella finale sopra descritta è presente nella directory `data/` col nome di `italy_cases_deaths_by_age_sex.csv` e la sua struttura può essere immediatamente compresa anche tramite la semplice ispezione visiva della renderizzazione che ne offre GitHub.
+
+Oltre alla predetta tabella, sempre nella directory `data/`, sono presenti anche altre due tabelle, denominate `italy_cases_deaths_by_age_sex_interp_linear.csv` e `italy_cases_deaths_by_age_sex_interp_cubic.csv`, le quali contengono i dati originali interpolati alla frequenza giornaliera, nel primo caso con interpolazione lineare e nel secondo con interpolazione cubica (ottenute mediante il metodo [DataFrame.interpolate](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.interpolate.html) della libreria Python pandas). Queste ultime due tabelle risultano utili nel calcolo dei *delta*, in quanto le differenze calcolate sui dati originali, non essendo questi ultimi equispaziati nel tempo (si veda il punto 1 del paragrafo [Limitazioni](#limitazioni)), risulterebbero riferite a intervalli di tempo di lunghezza diversa.
+
+Per ispezionarne visivamente la struttura, le tabelle sopra descritte sono accessibili ai seguenti link:
+
+- [italy_cases_deaths_by_age_sex.csv](https://github.com/emazep/Machine-readable-Covid-19-ISS-data/blob/master/data/italy_cases_deaths_by_age_sex.csv)
+- [italy_cases_deaths_by_age_sex_interp_linear.csv](https://github.com/emazep/Machine-readable-Covid-19-ISS-data/blob/master/data/italy_cases_deaths_by_age_sex_interp_linear.csv)
+- [italy_cases_deaths_by_age_sex_interp_cubic.csv](https://github.com/emazep/Machine-readable-Covid-19-ISS-data/blob/master/data/italy_cases_deaths_by_age_sex_interp_cubic.csv)
 
 ## Limitazioni
 
 I dati soffrono di alcune limitazioni, dovute alle modalità di pubblicazione degli stessi da parte dell'ISS:
 
-- i valori della chiave (la data di pubblicazione) non sono equispaziati: l'ISS ha pubblicato i dati con cadenza grossomodo settimanale ma, di tanto in tanto, tra un documento e il successivo sono trascorsi intervalli più lunghi o più brevi di 7 giorni (i documenti sono stati e verranno sempre acquisiti tutti, sicché l'utente è libero di effettuare eventuali operazioni di decimazione o interpolazione);
-- per giunta anche l'orario di estrazione dal proprio database dei dati pubblicati da parte dell'ISS è difforme da documento a documento, cosa che potrebbe avere un qualche impatto laddove il database dell'ISS venisse alimentato più volte al giorno (cosa che non sappiamo);
-- benché i dati siano cumulati e quindi i valori debbano essere non decrescenti nel tempo, di tanto in tanto (raramente) si osservano dei valori decrescenti da una data alla successiva (forse per via di redistribuzioni di alcuni dati tra le varie fasce d'età);
-- i dati imputati nella tabella originale alla riga `Età non nota` non sono stati acquisiti in quanto non interpretabili: i valori hanno una notevole erraticità per cui certamente non sono cumulati, ma non è chiaro se si tratti di dati differenziali o (più probabilmente) di dati che diminuiscono di valore per intervenuta attribuzione ad una specifica classe d'età (in ogni caso si tratta di valori piuttosto contenuti);
-- benché il primo documento di questa serie (pubblicato dall'ISS in data 09/03/2020) sia stato regolarmente scaricato e sia presente anche in questo repository, da esso non è stato possibile acquisire i dati, in quanto la tabella contenuta appare limitata alla sola stratificazione per classe d'età e, per giunta, con le ultime due classi, che nei documenti successivi sono sempre separate (80-89 e ≥90), che in questo caso appaiono invece raccolte in un'unica classe (≥80); i dati estratti partono pertanto dal documento successivo, riferibile alla data 12/03/2020 (si tratta peraltro di uno dei casi in cui il tempo intercorso tra due documenti successivi è inferiore ai 7 giorni).
+1. i valori della chiave (la data di pubblicazione) non sono equispaziati: l'ISS ha pubblicato i dati con cadenza grossomodo settimanale ma, di tanto in tanto, tra un documento e il successivo sono trascorsi intervalli più lunghi o più brevi di 7 giorni; per effettuare il calcolo dei delta sullo stesso periodo temporale, si possono utilizzare le due tabelle aggiuntive interpolate alla frequenza giornaliera `italy_cases_deaths_by_age_sex_interp_linear.csv` e `italy_cases_deaths_by_age_sex_interp_cubic.csv` sopra descritte, oppure si può provvedere ad effettuare autonomamente interventi di interpolazione o decimazione dei dati originali;
+2. i valori interpolati nelle due predette tabelle estese sono, in generale, di tipo *float*, benché, trattandosi di conteggi, ci si aspetterebbe degli interi: la cosa non dovrebbe costituire un problema nelle rappresentazioni grafiche, ma potrebbe esserlo in altri utilizzi dei dati, nel qual caso si raccomanda di eseguire le opportune operazioni di arrotondamento;
+3. per giunta anche l'orario di estrazione dal proprio database dei dati pubblicati da parte dell'ISS è difforme da documento a documento, cosa che potrebbe avere un qualche impatto laddove il database dell'ISS venisse alimentato più volte al giorno (cosa che non sappiamo);
+4. benché i dati siano cumulati e quindi i valori debbano essere non decrescenti nel tempo, in almeno un'occasione si osservano dei valori decrescenti da una data alla successiva (forse per via di redistribuzioni di alcuni dati tra le varie fasce d'età); tale anomalia risulta tuttavia limitata ad un unico caso tra quelli ad oggi osservati (il bollettino del 30/06/2020, relativamente ai casi sia dei maschi che delle femmine) e ad un'unica fascia d'età (≥90);
+5. i dati imputati nella tabella originale alla riga `Età non nota` non sono stati acquisiti in quanto non interpretabili: i valori hanno una notevole erraticità per cui certamente non sono cumulati, ma non è chiaro se si tratti di dati differenziali o (più probabilmente) di dati che diminuiscono di valore per intervenuta attribuzione ad una specifica classe d'età (in ogni caso si tratta di valori piuttosto contenuti);
+6. benché il primo documento di questa serie (pubblicato dall'ISS in data 09/03/2020) sia stato regolarmente scaricato e sia presente anche in questo repository, da esso non è stato possibile acquisire i dati, in quanto la tabella contenuta appare limitata alla sola stratificazione per classe d'età e, per giunta, con le ultime due classi, che nei documenti successivi sono sempre separate (80-89 e ≥90), che in questo caso appaiono invece raccolte in un'unica classe (≥80); i dati estratti partono pertanto dal documento successivo, riferibile alla data 12/03/2020 (si tratta peraltro di uno dei casi in cui il tempo intercorso tra due documenti successivi è inferiore ai 7 giorni).
 
 ## Fonti alternative
 
-Ancorché in forma largamente subottimale, dal 08/12/2020 l'ISS ha iniziato a pubblicare questi stessi dati anche in formato machine-readable, attraverso un file `xlsx` aggiornato con cadenza giornaliera, linkato nella pagina https://www.epicentro.iss.it/coronavirus/sars-cov-2-dashboard.
+Ancorché in forma largamente subottimale, dal 08/12/2020 l'ISS ha iniziato a pubblicare questi stessi dati anche in formato machine-readable, attraverso un file `xlsx` aggiornato con cadenza giornaliera e reso disponibile su un'[apposita pagina](https://www.epicentro.iss.it/coronavirus/sars-cov-2-dashboard).
 
 Tali dati presentano tuttavia almeno un paio di rilevanti limitazioni:
 
-1. non vengono storicizzati: il file contiene semplicemente i valori cumulati aggiornati alla data di pubblicazione; a tale proposito va detto che esiste un meritorio progetto indipendente che recupera periodicamente il predetto file e ne storicizza i valori, rinvenibile qui: https://github.com/floatingpurr/covid-19_sorveglianza_integrata_italia;
+1. non vengono storicizzati: il file contiene semplicemente i valori cumulati aggiornati alla data di pubblicazione; a tale proposito va detto che esiste un [meritorio progetto indipendente](https://github.com/floatingpurr/covid-19_sorveglianza_integrata_italia) che recupera periodicamente il predetto file e ne storicizza i valori;
 1. come già detto, i dati partono dai valori cumulati alla data 08/12/2020, quindi non è possibile recuperarne i valori precedenti (che costituisce il motivo principale per cui è nato il presente progetto).
 
 Per quanto ci risulta, il presente progetto è l'unico attraverso il quale sia possibile accedere all'intero archivio storico dei dati dell'ISS in formato machine-readable.
 
 ## Uso
 
-I dati estratti, in formato CSV, possono essere utilizzati direttamente, facendo riferimento al file:
+I dati estratti, in formato CSV (con il carattere virgola - nome unicode: `comma` - come separatore di campo, con le intestazioni di colonna nella prima riga e caratteri del solo sottoinsieme ASCII `a-z`, `-`, `0-9`, `.`), possono essere utilizzati direttamente, facendo riferimento ad uno dei seguenti file (corrispondenti alle tabelle sopra descritte sopra descritte):
 
-https://raw.githubusercontent.com/emazep/Machine-readable-Covid-19-ISS-data/master/data/italy_cases_deaths_by_age_sex.csv
+- <https://raw.githubusercontent.com/emazep/Machine-readable-Covid-19-ISS-data/master/data/italy_cases_deaths_by_age_sex.csv>
+- <https://github.com/emazep/Machine-readable-Covid-19-ISS-data/blob/master/data/italy_cases_deaths_by_age_sex_interp_linear.csv>
+- <https://github.com/emazep/Machine-readable-Covid-19-ISS-data/blob/master/data/italy_cases_deaths_by_age_sex_interp_cubic.csv>
 
-che conterrà sempre lo storico di tutti i dati aggiornati all'ultimo documento disponibile, che verrà acquisito il prima possibile, ci si propone entro qualche ora dalla pubblicazione sul sito dell'ISS.
+che conterranno sempre lo storico di tutti i dati aggiornati all'ultimo documento disponibile, che verrà acquisito il prima possibile, ci si propone entro qualche ora dalla pubblicazione sul sito dell'ISS.
 
 Purtroppo l'acquisizione non può essere del tutto automatizzata, data l'impredicibilità dei nomi dei file pubblicati dall'ISS (che non seguono uno standard uniforme) e della modalità di esposizione dei dati all'interno di ognuno di essi, affetta occasionalmente da variazioni nei metadati o da cambiamenti nella formattazione del documento, che impattano purtroppo sul processo di scraping.
 
@@ -74,36 +83,47 @@ I seguenti snippet fanno riferimento esclusivamente alla libreria Python [pandas
 
 Caricamento di pandas:
 
-```
+```python
 import pandas as pd
 ```
 
 Caricamento dei dati (aggiornati) in un dataframe pandas (con riconoscimento e parsing automatico dell'indice in oggetti di tipo `datetime`):
 
-```
+```python
 SOURCE = 'https://raw.githubusercontent.com/emazep/Machine-readable-Covid-19-ISS-data/master/data/italy_cases_deaths_by_age_sex.csv'
+```
 
+oppure, nel caso si desideri utilizzare una delle tabelle interpolate:
+
+```python
+# interpolazione lineare
+SOURCE = 'https://raw.githubusercontent.com/emazep/Machine-readable-Covid-19-ISS-data/master/data/italy_cases_deaths_by_age_sex_interp_linear.csv'
+```
+
+oppure:
+
+```python
+# interpolazione cubica
+SOURCE = 'https://raw.githubusercontent.com/emazep/Machine-readable-Covid-19-ISS-data/master/data/italy_cases_deaths_by_age_sex_interp_cubic.csv'
+```
+
+e quindi:
+
+```python
 df = pd.read_csv(SOURCE, index_col=0, parse_dates=True)
 ```
 
-Se invece si desidera che l'indice sia di tipo `date` (preferibile) anziché `datetime`, per il caricamento si può utilizzare il seguente snippet alternativo (solo per pandas ≥ 0.15.0):
+Se invece si desidera che l'indice sia di tipo `date` anziché `datetime`, per il caricamento si può utilizzare il seguente snippet alternativo (solo per pandas ≥ 0.15.0):
 
-```
+```python
 df = pd.read_csv(SOURCE, parse_dates=['date'])
 df['date'] = df['date'].dt.date
 df.set_index('date', inplace=True)
 ```
 
-Aggiunta di una colonna con i valori incrementali (ovvero le differenze col valore precedente nella colonna) per ogni colonna del dataframe:
-
-```
-for col in df.columns:
-    df[col + '_DELTA'] = df[col].diff()
-```
-
 Calcolo dei casi e dei decessi totali (maschi + femmine) per ogni classe di età:
 
-```
+```python
 AGE_CLASSES = ['0-9', '10-19', '20-29', '30-39', '40-49', '50-59', '60-69', '70-79', '80-89', '90-']
 
 for age_class in AGE_CLASSES:
@@ -111,9 +131,34 @@ for age_class in AGE_CLASSES:
     df['deaths_' + age_class + '_TOTAL'] = df['deaths_male_' + age_class] + df['deaths_female_' + age_class]
 ```
 
-Aggiunta di una colonna contenente il CFR (_Confirmed Fatality Rate_, dato dal rapporto tra i decessi cumulati alla data corrente e i casi cumulati alla data precedente disponibile) per ogni classe d'età, espresso in percentuale (si assume che sia già stato eseguito lo snippet precedente):
+Aggiunta di una colonna con i valori incrementali (ovvero le differenze col valore precedente nella colonna, dette anche *delta*) per ogni colonna del dataframe:
 
+```python
+for col in df.columns:
+    df[col + '_DELTA'] = df[col].diff()
 ```
+
+Si noti come per il predetto calcolo dei delta sia preferibile utilizzare i dati interpolati, in quanto i dati originali non appaiono purtroppo equispaziati nel tempo, come descritto al punto 1 del paragrafo [Limitazioni](#limitazioni).
+
+Aggiunta degli andamenti delle percentuali di casi e decessi sui rispettivi totali per ogni classe di età (si assume che siano già stati eseguiti il calcolo dei totali e dei delta di cui ai due snippet precedenti, esattamente in quest'ordine):
+
+```python
+total_cases_delta = total_deaths_delta = 0
+for age_class in AGE_CLASSES:
+    total_cases_delta += df['cases_' + age_class + '_TOTAL_DELTA']
+    total_deaths_delta += df['deaths_' + age_class + '_TOTAL_DELTA']
+for age_class in AGE_CLASSES:
+    df['cases_' + age_class + '_TOTAL_DELTA_PERC'] = (
+        df['cases_' + age_class + '_TOTAL_DELTA'] / total_cases_delta
+    ) * 100
+    df['deaths_' + age_class + '_TOTAL_DELTA_PERC'] = (
+        df['deaths_' + age_class + '_TOTAL_DELTA'] / total_deaths_delta
+    ) * 100
+```
+
+Aggiunta di una colonna contenente il CFR (_Confirmed Fatality Rate_, dato dal rapporto tra i decessi cumulati alla data corrente e i casi cumulati alla data precedente disponibile) per ogni classe d'età, espresso in percentuale (si assume che sia già stato eseguito lo snippet che calcola i totali):
+
+```python
 for age_class in AGE_CLASSES:
     df['CFR_' + age_class] = (df['deaths_' + age_class + '_TOTAL'] / df['cases_' + age_class + '_TOTAL'].shift()) * 100
 ```
@@ -126,7 +171,7 @@ Gli script sono stati redatti in codice Python e sono reperibili nella directory
 
 Per installarne i prerequisiti, eseguire:
 
-```
+```bash
 pip install -r requirements.txt
 ```
 
