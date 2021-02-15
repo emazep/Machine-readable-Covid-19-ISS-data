@@ -1,6 +1,6 @@
 <img src="./images/logo.png" width="100" height="100" align="right" />
 
-# Machine-readable-Covid-19-ISS-data
+# Machine readable Covid-19 ISS data
 
 I dati delle pubblicazioni periodiche dell'Istituto Superiore di Sanità (ISS) sull'epidemia da SARS-CoV-2 storicizzati e convertiti in formato machine-readable.
 
