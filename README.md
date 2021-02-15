@@ -67,7 +67,7 @@ Per quanto ci risulta, il presente progetto è l'unico attraverso il quale sia p
 
 ## Uso
 
-I dati estratti, in formato CSV (con il carattere virgola - nome unicode: `comma` - come separatore di campo, con le intestazioni di colonna nella prima riga e caratteri del solo sottoinsieme ASCII `a-z`, `-`, `0-9`, `.`), possono essere utilizzati direttamente, facendo riferimento ad uno dei seguenti file (corrispondenti alle tabelle sopra descritte sopra descritte):
+I dati estratti, in formato CSV (con il carattere virgola - nome unicode: `comma` - come separatore di campo, con le intestazioni di colonna nella prima riga e caratteri del solo sottoinsieme ASCII `a-z`, `-`, `0-9`, `.`), possono essere utilizzati direttamente, facendo riferimento ad uno dei seguenti file (corrispondenti alle tabelle sopra descritte):
 
 - <https://raw.githubusercontent.com/emazep/Machine-readable-Covid-19-ISS-data/master/data/italy_cases_deaths_by_age_sex.csv>
 - <https://raw.githubusercontent.com/emazep/Machine-readable-Covid-19-ISS-data/master/data/italy_cases_deaths_by_age_sex_interp_linear.csv>
