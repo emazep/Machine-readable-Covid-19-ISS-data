@@ -140,7 +140,7 @@ for col in df.columns:
 
 Si noti come per il predetto calcolo dei delta sia preferibile utilizzare i dati interpolati, in quanto i dati originali non appaiono purtroppo equispaziati nel tempo, come descritto al punto **1** del paragrafo [Limitazioni](#limitazioni).
 
-Aggiunta degli andamenti delle percentuali di casi e decessi sui rispettivi totali per ogni classe di età (si assume che siano già stati eseguiti il calcolo dei totali e dei delta di cui ai due snippet precedenti, esattamente in quest'ordine):
+Aggiunta degli andamenti delle percentuali dei delta di casi e decessi sui rispettivi delta totali per ogni classe di età (si assume che siano già stati eseguiti il calcolo dei totali e dei delta di cui ai due snippet precedenti, esattamente in quest'ordine):
 
 ```python
 total_cases_delta = total_deaths_delta = 0
