@@ -26,6 +26,8 @@ import locale
 locale.setlocale(locale.LC_ALL, 'it_IT')
 
 import functools
+import os
+import os
 print = functools.partial(print, flush=True)
 
 # Start and stop date to search ISS documents through.
