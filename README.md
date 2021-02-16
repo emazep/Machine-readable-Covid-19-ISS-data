@@ -199,7 +199,7 @@ Per quanto riguarda i contributi al codice, si prega di attenersi agli standard 
 4. pushare le modifiche sul Branch (`git push origin feature/AmazingFeature`);
 5. aprire una Pull Request.
 
-## Licenza
+## Licenza - License
 
 Il codice presente in questo repository è rilasciato sotto licenza MIT. Si consulti il file `LICENSE.txt` per ulteriori dettagli in merito.
 
