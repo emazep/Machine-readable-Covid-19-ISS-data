@@ -201,7 +201,15 @@ Per quanto riguarda i contributi al codice, si prega di attenersi agli standard 
 
 ## Licenza
 
+Il codice presente in questo repository è rilasciato sotto licenza MIT. Si consulti il file `LICENSE.txt` per ulteriori dettagli in merito.
+
+Per quanto attiene ai dati, essi sono di proprietà dell'[Istituto Superiore di Sanità](https://www.iss.it/), per cui si prega di contattare tale istituzione per le informazioni riguardo la loro licenza d'uso.
+
+_________________
+
 The code in this repository is distributed under the MIT License. See the file `LICENSE.txt` for more information.
+
+As far as the data, they are owned by the [Istituto Superiore di Sanità](https://www.iss.it/), so please contact them for any information regarding their licensing terms.
 
 ## Autore
 
