@@ -75,7 +75,7 @@ I dati estratti, in formato CSV (con il carattere virgola - nome unicode: `comma
 
 che conterranno sempre lo storico di tutti i dati aggiornati all'ultimo documento disponibile, che verrà acquisito il prima possibile, ci si propone entro qualche ora dalla pubblicazione sul sito dell'ISS.
 
-Purtroppo l'acquisizione non può essere del tutto automatizzata, data l'impredicibilità dei nomi dei file pubblicati dall'ISS (che non seguono uno standard uniforme) e della modalità di esposizione dei dati all'interno di ognuno di essi, affetta occasionalmente da variazioni nei metadati o da cambiamenti nella formattazione del documento, che impattano purtroppo sul processo di scraping.
+Purtroppo l'acquisizione non può essere del tutto automatizzata, data l'impredicibilità dei nomi dei file pubblicati dall'ISS (che non seguono uno standard uniforme) e della modalità di esposizione dei dati all'interno di ognuno di essi, affetta occasionalmente da variazioni nei metadati o da cambiamenti nella formattazione del documento, che impattano purtroppo sulle euristiche di scraping.
 
 ### Cookbook
 
