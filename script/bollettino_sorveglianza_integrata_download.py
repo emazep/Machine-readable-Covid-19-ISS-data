@@ -96,4 +96,4 @@ while (scan_date >= stop_date):
 
 print()
 print('Done: ', start_date.isoformat(), '->', (scan_date+timedelta(days=1)).isoformat())
-print(d, ' documents downloaded')
+print(d, ' document(s) downloaded')
