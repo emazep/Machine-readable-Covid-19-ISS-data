@@ -52,7 +52,7 @@ I dati soffrono di alcune limitazioni, dovute alle modalità di pubblicazione de
 3. per giunta anche l'orario di estrazione dal proprio database dei dati pubblicati da parte dell'ISS è difforme da documento a documento, cosa che potrebbe avere un qualche impatto laddove il database dell'ISS venisse alimentato più volte al giorno (cosa che non sappiamo);
 4. benché i dati siano cumulati e quindi i valori debbano essere non decrescenti nel tempo, in alcune (rare) occasioni si osservano valori decrescenti da una data alla successiva (forse per via di intervenute redistribuzioni di alcuni dati tra le varie fasce d'età);
 5. i dati imputati nella tabella originale alla riga `Età non nota` non sono stati acquisiti in quanto non interpretabili: i valori hanno una notevole erraticità per cui certamente non sono cumulati, ma non è chiaro se si tratti di dati differenziali o (più probabilmente) di dati che diminuiscono di valore per intervenuta attribuzione ad una specifica classe d'età (in ogni caso si tratta di valori piuttosto contenuti);
-6. benché il primo documento di questa serie (pubblicato dall'ISS in data 09/03/2020) sia stato regolarmente scaricato e sia presente anche in questo repository, da esso non è stato possibile acquisire i dati, in quanto la tabella contenuta appare limitata alla sola stratificazione per classe d'età e, per giunta, con le ultime due classi, che nei documenti successivi sono sempre separate (80-89 e ≥90), che in questo caso appaiono invece raccolte in un'unica classe (≥80); i dati estratti partono pertanto dal documento successivo, riferibile alla data 12/03/2020 (si tratta peraltro di uno dei casi in cui il tempo intercorso tra due documenti successivi è inferiore ai 7 giorni).
+6. benché il primo documento di questa serie (pubblicato dall'ISS in data 09/03/2020) sia stato regolarmente scaricato e sia presente anche in questo repository, da esso non è stato possibile acquisire i dati, in quanto la tabella contenuta appare limitata alla sola stratificazione per classe d'età (senza stratificazione per sesso) e, per giunta, con le ultime due classi, che nei documenti successivi sono sempre separate (80-89 e ≥90), che in questo caso appaiono invece raccolte in un'unica classe (≥80); i dati estratti partono pertanto dal documento successivo, riferibile alla data 12/03/2020 (si tratta peraltro di uno dei casi in cui il tempo intercorso tra due documenti successivi è inferiore ai 7 giorni).
 
 ## Fonti alternative
 
@@ -203,7 +203,7 @@ Per quanto riguarda i contributi al codice, si prega di attenersi agli standard 
 
 Il codice presente in questo repository è rilasciato sotto licenza MIT. Si consulti il file `LICENSE.txt` per ulteriori dettagli in merito.
 
-Per quanto attiene ai dati, essi sono di proprietà dell'[Istituto Superiore di Sanità](https://www.iss.it/), per cui si prega di contattare tale istituzione per le informazioni riguardo la loro licenza d'uso.
+Per quanto attiene ai dati, essi sono di proprietà dell'[Istituto Superiore di Sanità](https://www.iss.it/), per cui si prega di contattare tale istituzione per le informazioni riguardo la relativa licenza d'uso.
 
 ---
 
