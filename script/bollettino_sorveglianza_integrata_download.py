@@ -26,8 +26,6 @@ import locale
 locale.setlocale(locale.LC_ALL, 'it_IT')
 
 import functools
-import os
-import os
 print = functools.partial(print, flush=True)
 
 # Start and stop date to search ISS documents through.
@@ -72,7 +70,7 @@ while (scan_date >= stop_date):
     print()
     
     if os.path.exists(file_save_name):
-        print(colored(file_save_name + '\talready present!', 'red', 'on_white'))
+        print(colored(file_save_name + '\talready present!', 'blue', 'on_white'))
         if STOP_ON_FIRST_DUPLICATE:
             print('Exiting because an already downloaded doc has been found.\nTo scan every single date regardless of the already downloaded docs, please set STOP_ON_FIRST_DUPLICATE to False.')
             break
@@ -86,7 +84,7 @@ while (scan_date >= stop_date):
     content_type = r.headers.get('content-type')
 
     if 'application/pdf' not in content_type:
-        print(colored(url + '\tnot found on server!', 'green', 'on_white'))
+        print(colored(url + '\tnot found on server!', 'red', 'on_white'))
         continue
     
     with open(file_save_name, 'wb') as f:
